@@ -31,6 +31,7 @@
     },
     methods: {
       goHome() { // 去往主页
+        console.log('换了时光开始辣~')
         this.$router.push('home')
       },
       initCanvas() { // 初始化画布
