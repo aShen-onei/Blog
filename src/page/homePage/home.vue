@@ -11,13 +11,47 @@
 </template>
 
 <script>
-    import HComponent from './components/header.vue'
-    import FComponent from './components/footer.vue'
+  import HComponent from './components/header.vue'
+  import FComponent from './components/footer.vue'
+  import live2d from 'live2d-widget'
+  import path from 'path'
   export default {
     name: "home",
     components: {
       HComponent,
       FComponent
+    },
+    created(){
+      this.initLive2d();
+    },
+    methods: {
+      initLive2d() {
+        live2d.L2Dwidget.init({
+          "model": {
+            "jsonPath": "https://unpkg.com/live2d-widget-model-sagiri@1.0.0/assets/sagiri.model.json",
+            "scale": 1
+          },
+          "display": {
+              "position": "right",
+              "width": 150,
+              "height": 300,
+              "hOffset": 0,
+              "vOffset": -20
+          },
+          "mobile": {
+              "show": true,
+              "scale": 0.5
+          },
+          "react": {
+              "opacityDefault": 0.7,
+              "opacityOnHover": 0.2
+          },
+          "dialog": {
+            "enable": true,
+            "hitokoto": true
+          }
+        })
+      }
     }
   }
 </script>

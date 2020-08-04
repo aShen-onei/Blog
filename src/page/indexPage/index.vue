@@ -46,25 +46,25 @@
         let init   = false;
         const that = this;
         img.onload = function() {
-          canvas.onmousemove = function(e) {
-            if (!init) {
-              lastX = e.x;
-              lastY = e.y;
-              ctx.clearRect(0, 0, that.canvasWidth, that.canvasHeight);
-              ctx.drawImage(img, dx, dy);
-              init = true;
-            }
-            let directionX = e.x - lastX;
-            let directionY = e.y - lastY;
-            lastX          = e.x;
-            lastY          = e.y;
-            // ←
-            if(directionX > 0)
-            let offsetX = e.offsetX;
-            let offsetY = e.offsetY;
-            ctx.clearRect(0, 0, that.canvasWidth, that.canvasHeight);
-            ctx.drawImage(img, dx, dy);
-          }
+          // canvas.onmousemove = function(e) {
+          //   if (!init) {
+          //     lastX = e.x;
+          //     lastY = e.y;
+          //     ctx.clearRect(0, 0, that.canvasWidth, that.canvasHeight);
+          //     ctx.drawImage(img, dx, dy);
+          //     init = true;
+          //   }
+          //   let directionX = e.x - lastX;
+          //   let directionY = e.y - lastY;
+          //   lastX          = e.x;
+          //   lastY          = e.y;
+          //   // ←
+          //   if(directionX > 0)
+          //   let offsetX = e.offsetX;
+          //   let offsetY = e.offsetY;
+          //   ctx.clearRect(0, 0, that.canvasWidth, that.canvasHeight);
+          //   ctx.drawImage(img, dx, dy);
+          // }
         }
       },
       enterEventX(e) {
