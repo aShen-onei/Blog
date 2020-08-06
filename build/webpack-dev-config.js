@@ -1,10 +1,10 @@
+import proxy from '../config/proxy.js'
 const webpack              = require('webpack');
 const path                 = require('path');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const htmlWebpackPlugin    = require('html-webpack-plugin');
 const vueLoaderPlugin      = require('vue-loader/lib/plugin');
 const copyWebpackPlugin    = require('copy-webpack-plugin');
-import proxy from '../config/proxy.js'
 
 
 const config = {
