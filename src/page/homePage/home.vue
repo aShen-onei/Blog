@@ -3,7 +3,9 @@
         <div class="gui-header">
             <h-component></h-component>
         </div>
-        <div style="height: 1000px"></div>
+        <div style="height: 1000px">
+          <el-button @click="testMock">点击测试mock数据</el-button>
+        </div>
         <div class="gui-footer">
             <f-component></f-component>
         </div>
@@ -13,6 +15,7 @@
 <script>
   import HComponent from './components/header.vue'
   import FComponent from './components/footer.vue'
+  import { testServer } from '../../services/test.js'
   import live2d from 'live2d-widget'
   import path from 'path'
   export default {
@@ -22,9 +25,12 @@
       FComponent
     },
     created(){
-      this.initLive2d();
+      this.initLive2d(); // 初始化live2d
     },
     methods: {
+      /**
+       * 初始化live2d
+       */
       initLive2d() {
         live2d.L2Dwidget.init({
           "model": {
@@ -51,6 +57,10 @@
             "hitokoto": true
           }
         })
+      },
+      testMock() {
+        console.log('测试------------');
+        testServer();
       }
     }
   }
