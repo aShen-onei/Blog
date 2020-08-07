@@ -1,4 +1,4 @@
-import proxy from '../config/proxy.js'
+const proxy                = require('../config/proxy');
 const webpack              = require('webpack');
 const path                 = require('path');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');

@@ -3,7 +3,8 @@
  * The agent cannot take effect in the production environment
  * so there is no configuration of the production environment
  */
-
- export default {
-  '/api': 'http://localhost:8090'
- }
+  const proxy = {
+    '/api': 'http://localhost:8090'
+  }
+  module.exports =  proxy
+  // export default proxy;

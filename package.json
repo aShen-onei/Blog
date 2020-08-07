@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack-dev-config.js",
+    "no-mock": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack-dev-config.js",
     "build": "cross-env NODE_ENV=production webpack --config ./build/webpack-pro-config.js",
     "mock": "nodemon --watch ./src/mock-server ./src/mock-server/index.js",
-    "install": "prebuild-install || node-gyp rebuild"
+    "install": "prebuild-install || node-gyp rebuild",
+    "start": "concurrently \"nodemon --watch ./src/mock-server ./src/mock-server/index.js\" \"cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack-dev-config.js\""
   },
   "keywords": [
     "blog",
@@ -23,6 +24,7 @@
     "autoprefixer": "^9.7.2",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.2.0",
     "copy-webpack-plugin": "^5.0.5",
     "cross-env": "^7.0.2",
     "css-loader": "^3.2.0",
