@@ -5,6 +5,7 @@
         </div>
         <div style="height: 1000px">
           <el-button @click="testMock">点击测试mock数据</el-button>
+          <el-button @click="getSong">点击获取歌曲</el-button>
         </div>
         <div class="gui-footer">
             <f-component></f-component>
@@ -15,7 +16,7 @@
 <script>
   import HComponent from './components/header.vue'
   import FComponent from './components/footer.vue'
-  import { testServer } from '../../services/test.js'
+  import { testServer, getSongData } from '../../services/test.js'
   import live2d from 'live2d-widget'
   import path from 'path'
   export default {
@@ -61,6 +62,9 @@
       testMock() {
         console.log('测试------------');
         testServer();
+      },
+      getSong() {
+        getSongData();
       }
     }
   }

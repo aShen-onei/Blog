@@ -6,7 +6,6 @@ const htmlWebpackPlugin    = require('html-webpack-plugin');
 const vueLoaderPlugin      = require('vue-loader/lib/plugin');
 const copyWebpackPlugin    = require('copy-webpack-plugin');
 
-
 const config = {
   mode: 'development',
   entry: {
