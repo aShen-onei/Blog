@@ -5,7 +5,7 @@
         </div>
         <div style="height: 1000px">
           <el-button @click="testMock">点击测试mock数据</el-button>
-          <el-button @click="getSong">点击获取歌曲</el-button>
+          <el-button @click="getSong">点击测试</el-button>
         </div>
         <div class="gui-footer">
             <f-component></f-component>
