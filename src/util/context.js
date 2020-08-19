@@ -1,5 +1,3 @@
-const { default: request } = require("umi-request");
-
 /**
  * require.context的实现
  */
@@ -15,20 +13,12 @@ const path = require('path');
 const context = (directory, recursive, regExp) => {
   let basePath = directory; // 文件传入的路径
 
-  // if (directory[0] === '.') {
-  //   // 相对路径
-  //   basePath = path.join(__dirname, directory)
-  // } else if (!path.isAbsolute(directory)) {
-  //   // 绝对路径
-  //   basePath = require.resolve(directory)
-  // }
-
   // 获取文件列表数组
   let keys    = dir.files(basePath,       { sync: true,recursive: recursive || false})
                    .filter(function(file) { return file.match(regExp || /\.js$/); })
                    .map(function(file)    { return path.join('.', file.slice(basePath.length + 1)); });
   
-  // 
+  // 获取context
   let requireContext     = function(key) { return require(requireContext.resolve(key)); };
   requireContext.resolve = function(key) { return path.join(directory, key); };
   requireContext.keys    = function()    { return keys; };

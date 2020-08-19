@@ -33,6 +33,39 @@ const config = {
         use: 'babel-loader'
       },
       {
+        test: /\.css$/,
+        exclude: /node-modules/,
+        use: [
+          {
+            loader: miniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+        ]
+      },
+      {
+        test: /\.less$/,
+        exclude: /node-modules/,
+        use: [
+          {
+            loader: miniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          'less-loader'
+        ]
+      },
+      {
         test: /\.scss$/,
         exclude: /node-modules/,
         use: [
