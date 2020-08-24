@@ -1,78 +1,45 @@
 <template>
-    <div>
+    <div class="parallax-container">
         <button @click="goHome" class="href">home</button>
-        <canvas id="canvas-frame" :width="canvasWidth" :height="canvasHeight"></canvas>
-        <div class="ui-box">
-            <div>x阻尼：
-                <input @keyup.enter="enterEventX" @blur="enterEventX">
-            </div>
-            <div>y阻尼：
-                <input @keyup.enter="enterEventY" @blur="enterEventY">
-            </div>
+        <div id="parallax-scene" class="parallax-scene">
+          <div data-depth="0.4" class="layer">
+            <div class="background-image"></div>
+          </div>
         </div>
     </div>
 </template>
 
 <script>
+  import parallax from 'parallax-js';
+  const WINDOW_WIDTH  = window.innerWidth; // 窗口的宽度
+  const WINDOW_HEIGHT = window.innerHeight; // 窗口的高度
   export default {
     name: "app",
     data() {
       return {
         canvasWidth  : window.innerWidth,
         canvasHeight : window.innerHeight - 50,
-        dampingX: 0, //x 轴阻尼
-        dampingY: 0, //y 轴阻尼
       }
     },
     created() {
     },
     mounted() {
-      this.initCanvas();
+      this.intParallax();
     },
     methods: {
       goHome() { // 去往主页
         console.log('换了时光开始辣~')
         this.$router.push('home')
       },
-      initCanvas() { // 初始化画布
-        let canvas = document.getElementById('canvas-frame');
-        let ctx    = canvas.getContext('2d');
-        let img    = new Image();
-        img.src    = '../font/back.jpg';
-        let dx     = -(1440 - this.canvasHeight) / 2;
-        let dy     = -(2560 - this.canvasWidth) / 2;
-        let lastX  = 0;
-        let lastY  = 0;
-        let init   = false;
-        const that = this;
-        img.onload = function() {
-          // canvas.onmousemove = function(e) {
-          //   if (!init) {
-          //     lastX = e.x;
-          //     lastY = e.y;
-          //     ctx.clearRect(0, 0, that.canvasWidth, that.canvasHeight);
-          //     ctx.drawImage(img, dx, dy);
-          //     init = true;
-          //   }
-          //   let directionX = e.x - lastX;
-          //   let directionY = e.y - lastY;
-          //   lastX          = e.x;
-          //   lastY          = e.y;
-          //   // ←
-          //   if(directionX > 0)
-          //   let offsetX = e.offsetX;
-          //   let offsetY = e.offsetY;
-          //   ctx.clearRect(0, 0, that.canvasWidth, that.canvasHeight);
-          //   ctx.drawImage(img, dx, dy);
-          // }
-        }
+      /**
+       * 初始化视差插件
+       */
+      intParallax() {
+        let { x, y }    = {x: WINDOW_WIDTH / 2, y: WINDOW_HEIGHT / 2};
+        let scene       = document.getElementById('parallax-scene');
+        let parallaxInt = new parallax(scene);
+        parallaxInt.calibrate(x, y);
       },
-      enterEventX(e) {
-        this.dampingX = e.target.value;
-      },
-      enterEventY(e) {
-        this.dampingY = e.target.value;
-      }
     }
   }
 </script>
@@ -80,14 +47,34 @@
 <style lang="scss" scoped>
     .href{
     position: absolute;
-}
-    #canvas-frame {
-        overflow: hidden;
+    display: none;
     }
-    .ui-box{
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        background: #dddddd;
+    .parallax-container {
+      position: absolute;
+      overflow: hidden;
+      display: table;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+
+      .parallax-scene, .layer {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        .background-image {
+          background: url('http://matthew.wagerfield.com/parallax/assets/images/background.jpg') no-repeat 100% 100%;
+          background-size: cover;
+          background-position: center center;
+          position: absolute;
+          width: 110%;
+          height: 110%;
+          left: -5%;
+          top: -5%;
+          bottom: -5%;
+        }
+      }
     }
 </style>
