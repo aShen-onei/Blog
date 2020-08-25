@@ -38,7 +38,6 @@
         let { x, y }    = {x: WINDOW_WIDTH / 2, y: WINDOW_HEIGHT / 2};
         let scene       = document.getElementById('parallax-scene');
         let parallaxInt = new parallax(scene);
-        parallaxInt.calibrate(x, y);
       },
     }
   }
