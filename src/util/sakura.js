@@ -13,7 +13,7 @@
    // 初始化材质
    initTexture() {
      // 加载纹理
-     let texture   = new THREE.TextureLoader().load('https://img-blog.csdnimg.cn/20190211172751113.png');
+     let texture   = new THREE.TextureLoader().load('/static/snow.png');
      // 使用图片纹理材质
      this.materials = []
      for(let i = 0; i < typeNum; i++ ){
@@ -77,6 +77,7 @@
        point.geometry.verticesNeedUpdate = true;
      })
      this.Engine.render.render(this.Engine.scene, this.Engine.camera);
-     requestAnimationFrame(this.runAnime);
+     requestAnimationFrame(this.runAnime.bind(this))
    }
  }
+ export default Sakura;

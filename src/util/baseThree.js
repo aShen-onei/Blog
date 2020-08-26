@@ -23,7 +23,8 @@ class Engine {
     this.camera.position.set(0, 0, 40);
     this.camera.lookAt(new THREE.Vector3(0, 0, 0));
   }
-
+  // 初始化坐标 
+  initAxier() { this.Axier = new THREE.AxesHelper(500); }
   // 添加场景
   addScene(thing) {
     this.scene.add(thing);
@@ -33,6 +34,8 @@ class Engine {
     this.intRender();
     this.initScene();
     this.initCamera();
+    this.initAxier();
+    this.addScene(this.Axier);
     this.addScene(this.camera);
   }
 }
