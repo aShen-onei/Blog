@@ -64,7 +64,7 @@
         padding: 0;
         margin: 0;
         .background-image {
-          background: url('http://matthew.wagerfield.com/parallax/assets/images/background.jpg') no-repeat 100% 100%;
+          background: url('/static/DarkSide.jpg') no-repeat 100% 100%;
           background-size: cover;
           background-position: center center;
           position: absolute;

@@ -89,7 +89,7 @@ const config = {
             loader:'url-loader',
             options:{
               limit:10000,
-              name:'font/[name].[hash:8].[ext]'
+              name:'img/[name].[hash:8].[ext]'
             },
           }
         ]
@@ -100,7 +100,7 @@ const config = {
           loader:'url-loader',
           options:{
             limit:10000,
-            name:'font/[name].[hash:8].[ext]'
+            name:'static/[name].[hash:8].[ext]'
           }
         }]
       },
@@ -121,8 +121,8 @@ const config = {
     new CleanWebpackPlugin(),
     new copyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../static/headhunter.png'),
-        to: path.resolve(__dirname, './dist/font')
+        from: path.resolve(__dirname, '../static'),
+        to: path.resolve(__dirname, './dist/static')
       }
     ])
   ]
