@@ -27,7 +27,7 @@
        });
        material.map.offset = new THREE.Vector2(1/typeNum * i, 0);
        material.map.repeat = new THREE.Vector2(1/typeNum, 1);
-       this.materials.push(material); // 假如图片材质
+       this.materials.push(material); // 图片材质
      }
    }
    // 初始化物体
@@ -73,11 +73,14 @@
          v.z = v.z - (v.velocityZ);
 
          // 边界检查
+         if (v.y <= -range/2) v.y = range / 2;
+         if (v.x <= -range/2 || v.x >= range/2) v.x = v.x * -1;  
+         if (v.z <= -range/2 || v.z >= range/2) v.velocityZ = v.velocityZ * -1;
        })
        point.geometry.verticesNeedUpdate = true;
      })
      this.Engine.render.render(this.Engine.scene, this.Engine.camera);
-     requestAnimationFrame(this.runAnime.bind(this))
+     requestAnimationFrame(this.runAnime.bind(this));
    }
  }
  export default Sakura;

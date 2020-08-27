@@ -10,7 +10,8 @@ class Engine {
 
   // 初始化render
   intRender() { 
-    this.render = new THREE.WebGLRenderer({antialias: true});
+    this.render = new THREE.WebGLRenderer({antialias: true, alpha: true});
+    this.render.setClearAlpha(0.0);
     this.render.setSize(window.innerWidth, window.innerHeight); // 设置大小
     this.element.appendChild(this.render.domElement); // 挂载dom节点
   }
@@ -34,8 +35,8 @@ class Engine {
     this.intRender();
     this.initScene();
     this.initCamera();
-    this.initAxier();
-    this.addScene(this.Axier);
+    // this.initAxier();
+    // this.addScene(this.Axier);
     this.addScene(this.camera);
   }
 }

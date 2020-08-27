@@ -71,6 +71,7 @@
 
       .parallax-scene, .layer {
         // display: none;
+        position: absolute;
         display: block;
         width: 100%;
         height: 100%;
