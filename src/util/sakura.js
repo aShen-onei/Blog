@@ -4,6 +4,8 @@
 
  import * as THREE from 'three';
  import Engine from './baseThree';
+ import Ammo from '../lib/ammo.js';
+
  let typeNum = 2; // 种类
  let range   = 50; // 同屏数量
  class Sakura {

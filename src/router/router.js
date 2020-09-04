@@ -3,6 +3,7 @@ import Router from 'vue-router'
 Vue.use(Router);
 const index = () => import( '../page/indexPage/index.vue' );
 const home  = () => import( '../page/homePage/home.vue' );
+const test = () => import ( '../page/testPage/test.vue');
 
 
 const childrenRouter = {};
@@ -18,6 +19,11 @@ const router = new Router({
       name: 'home',
       component: home,
       // children: childrenRouter
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: test
     }
   ]
 });
