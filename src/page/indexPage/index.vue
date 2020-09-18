@@ -2,10 +2,13 @@
     <div class="parallax-container">
       <div id="parallax-scene" class="parallax-scene">
         <div data-depth="0.4" class="layer">
-          <div class="background-image"></div>
+          <!-- <div class="background-image"></div> -->
+          <div>
+            <el-button @click="goHome" plain circle size="medium">进入</el-button>
+          </div>
         </div>
       </div>
-      <div class="sakura-scene" id="sakura"></div>
+      <!-- <div class="sakura-scene" id="sakura"></div> -->
     </div>
 </template>
 
