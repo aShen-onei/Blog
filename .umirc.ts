@@ -1,9 +1,10 @@
 import { defineConfig } from 'umi';
+import routers from './config/router';
 
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [{ path: '/', component: '@/pages/index' }],
+  routes: routers,
   fastRefresh: {},
 });
