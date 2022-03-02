@@ -20,10 +20,19 @@ interface IRouter {
    * When true, the active class/style will only be applied if the location is matched exactly.
    */
   exact?: boolean;
-  routes?: any[];
+  routes?: IRouter[];
   [k: string]: any;
 }
 
-const routers: IRouter[] = [{ path: '/', component: '@/pages/index' }];
+const routers: IRouter[] = [
+  {
+    path: '/',
+    component: '@/pages/index',
+  },
+  {
+    path: '/todo',
+    component: '@/pages/test/test.tsx',
+  },
+];
 
 export default routers;

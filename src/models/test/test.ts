@@ -3,14 +3,15 @@
  */
 import { IModel } from '@/types/common';
 import { Reducer } from 'react';
-interface ITestState {
+import { Effect } from 'umi';
+export interface ITestState {
   /**
    * 需要做的事
    */
-  todo: string[];
+  todos: string[];
 }
 interface ITestEffects {
-  getTodo: any;
+  getTodo: Effect;
 }
 
 interface ITestReducers {
@@ -20,7 +21,7 @@ interface ITestReducers {
 const TodoModel: IModel<ITestState, ITestEffects, ITestReducers> = {
   namespace: 'todo',
   state: {
-    todo: [],
+    todos: [],
   },
   effects: {
     *getTodo() {},
@@ -29,7 +30,7 @@ const TodoModel: IModel<ITestState, ITestEffects, ITestReducers> = {
     setTodo(state, { payload }) {
       return {
         ...state,
-        todo: payload,
+        todos: payload,
       };
     },
   },
