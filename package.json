@@ -26,6 +26,7 @@
     "lodash": "^4.17.21",
     "react": "17.x",
     "react-dom": "17.x",
+    "three.js": "^0.77.1",
     "umi": "^3.5.21"
   },
   "devDependencies": {
